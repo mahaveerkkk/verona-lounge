@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERONA | Artisanal Kitchen & Rooftop Lounge</title>
+  <meta name="description" content="Experience progressive culinary artistry, bespoke mixology, and breathtaking panoramic skyline dining at Verona Rooftop Lounge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            noir: '#0A0A0C',
+            obsidian: '#121215',
+            charcoal: '#1A1A1F',
+            gold: {
+              300: '#E6CA85',
+              400: '#D4AF37',
+              500: '#C5A059',
+              600: '#A47E35',
+            },
+            linen: '#F5F2EB',
+            warmgray: '#8E8E93',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0A0A0C;
+      color: #F5F2EB;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .serif-title {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 50%, #9B782E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border-color: rgba(212, 175, 55, 0.25);
+    }
+    .gold-border-glow:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+    }
+    .glass-card {
+      background: rgba(18, 18, 21, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+  </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-noir">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-gradient-to-r from-noir via-charcoal to-noir border-b border-gold-400/20 py-2.5 px-4 text-center text-xs tracking-widest uppercase text-gold-300 font-medium flex items-center justify-center gap-3">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+    <span>Live Jazz & Sunset Cocktails • Every Friday & Saturday 7:30 PM Onwards</span>
+    <span class="hidden md:inline-block text-gold-500/50">|</span>
+    <a href="#reservation" class="hidden md:inline text-gold-400 underline hover:text-gold-300 font-semibold">Reserve Your Sunset Table &rarr;</a>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-noir/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- LOGO -->
+      <a href="#" class="flex flex-col">
+        <span class="serif-title text-2xl md:text-3xl font-bold tracking-widest uppercase text-linen">V E R O N A</span>
+        <span class="text-[9px] uppercase tracking-[0.3em] text-gold-400 font-semibold -mt-1">Rooftop Lounge & Kitchen</span>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-linen/70">
+        <a href="#story" class="hover:text-gold-400 transition-colors">Our Story</a>
+        <a href="#menu" class="hover:text-gold-400 transition-colors">Culinary Menu</a>
+        <a href="#ambiance" class="hover:text-gold-400 transition-colors">Spaces & Ambiance</a>
+        <a href="#events" class="hover:text-gold-400 transition-colors">Private Dining</a>
+        <a href="#reviews" class="hover:text-gold-400 transition-colors">Diner Reviews</a>
+      </nav>
+
+      <!-- CTA BUTTONS -->
+      <div class="flex items-center gap-3">
+        <a href="tel:+919528582084" class="hidden sm:flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-gold-400 px-4 py-2.5 rounded-full border border-gold-400/30 hover:bg-gold-400/10 transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Direct Call
+        </a>
+        <button onclick="openBookingModal()" class="px-5 py-2.5 bg-gradient-to-r from-gold-500 to-gold-400 text-noir text-xs font-bold uppercase tracking-widest rounded-full hover:shadow-lg hover:shadow-gold-500/20 hover:scale-105 active:scale-95 transition-all">
+          Reserve Table
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <!-- BACKGROUND MEDIA WITH LUXURY OVERLAY -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80" alt="Verona Rooftop Restaurant Luxury Dining" class="w-full h-full object-cover object-center filter brightness-[0.38] contrast-110 scale-105 animate-pulse duration-[8000ms]">
+      <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-radial-gradient from-transparent via-noir/40 to-noir"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center flex flex-col items-center">
+      <!-- PILL TAG -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-gold-400/30 text-xs tracking-[0.25em] uppercase text-gold-300 mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
+        Michelin-Inspired Craft Gastronomy & Rooftop Skyline
+      </div>
+
+      <!-- MAIN HEADLINE -->
+      <h1 class="serif-title text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.08] text-linen max-w-4xl mb-6">
+        Culinary Artistry <br>
+        <span class="italic gold-gradient font-light">Beneath The Open Sky</span>
+      </h1>
+
+      <!-- SUBHEADING -->
+      <p class="text-linen/75 text-base sm:text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10">
+        Progressive artisanal woodfired delicacies, handcrafted botanical cocktails, and atmospheric candlelight dining elevated high above the city skyline.
+      </p>
+
+      <!-- CTA BUTTONS -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center max-w-md">
+        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-noir font-bold text-sm uppercase tracking-widest rounded-full hover:shadow-xl hover:shadow-gold-500/25 hover:scale-105 transition-all">
+          Reserve A Table
+        </button>
+        <a href="#menu" class="w-full sm:w-auto px-8 py-4 glass-card border border-white/20 hover:border-gold-400/50 text-linen font-semibold text-sm tracking-wider rounded-full hover:bg-white/5 transition-all text-center">
+          Explore The Menu &darr;
+        </a>
+      </div>
+
+      <!-- HIGHLIGHT METRICS BENTO -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 w-full max-w-4xl border-t border-white/10 pt-10 text-left">
+        <div class="glass-card p-4 rounded-xl border border-white/5">
+          <p class="serif-title text-3xl font-bold text-gold-400">4.9 ★</p>
+          <p class="text-xs uppercase tracking-wider text-warmgray mt-1">1,400+ Verified Diners</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl border border-white/5">
+          <p class="serif-title text-3xl font-bold text-gold-400">100%</p>
+          <p class="text-xs uppercase tracking-wider text-warmgray mt-1">Woodfired & Fresh Farm</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl border border-white/5">
+          <p class="serif-title text-3xl font-bold text-gold-400">160 ft</p>
+          <p class="text-xs uppercase tracking-wider text-warmgray mt-1">Panoramic Rooftop View</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl border border-white/5">
+          <p class="serif-title text-3xl font-bold text-gold-400">24+</p>
+          <p class="text-xs uppercase tracking-wider text-warmgray mt-1">Curated Botanical Drinks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY & PHILOSOPHY -->
+  <section id="story" class="py-24 bg-obsidian border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- IMAGE COLLAGE -->
+        <div class="relative">
+          <div class="aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80" alt="Executive Chef preparing artisanal dish" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-2xl border border-gold-400/30">
+              <p class="serif-title text-xl text-linen font-semibold">Chef Alessandro & Culinary Guild</p>
+              <p class="text-xs text-gold-300 uppercase tracking-widest mt-1">20+ Years Michelin-Trained Heritage</p>
+            </div>
+          </div>
+          <!-- FLOATING BADGE -->
+          <div class="absolute -top-6 -right-6 hidden sm:flex flex-col items-center justify-center w-28 h-28 rounded-full bg-gradient-to-tr from-gold-600 to-gold-400 text-noir font-bold shadow-xl border-4 border-noir p-2 text-center">
+            <span class="text-2xl">🌿</span>
+            <span class="text-[10px] uppercase tracking-wider font-extrabold leading-tight">Farm To Table</span>
+          </div>
+        </div>
+
+        <!-- TEXT CONTENT -->
+        <div class="space-y-6">
+          <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">The Verona Philosophy</span>
+          <h2 class="serif-title text-4xl sm:text-5xl font-normal text-linen leading-tight">
+            Where Ancient Fire Meets <br>
+            <span class="italic text-gold-300">Modern Botanical Mastery</span>
+          </h2>
+          <p class="text-linen/70 leading-relaxed font-light text-base sm:text-lg">
+            At Verona, dining is not merely a meal—it is a nocturnal sensory journey. Our kitchen revolves around an authentic imported volcanic stone woodfire oven, blistering hand-tossed Neapolitan dough and searing prime cuts at 480°C.
+          </p>
+          <p class="text-linen/70 leading-relaxed font-light text-base sm:text-lg">
+            Every herb is clipped fresh from our rooftop botanical garden, and every cocktail is clarified, smoked with applewood, or infused in-house for a taste that lingers long after midnight.
+          </p>
+
+          <div class="pt-4 grid grid-cols-2 gap-6 border-t border-white/10">
+            <div>
+              <p class="serif-title text-2xl text-linen font-medium">Volcanic Stone Oven</p>
+              <p class="text-xs text-warmgray mt-1">Imported from Modena for authentic crust crispness.</p>
+            </div>
+            <div>
+              <p class="serif-title text-2xl text-linen font-medium">Rooftop Herbology</p>
+              <p class="text-xs text-warmgray mt-1">Zero artificial syrups; 100% organic botanicals.</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button onclick="openBookingModal()" class="inline-flex items-center gap-3 text-gold-400 font-semibold text-sm uppercase tracking-widest hover:text-gold-300 transition-colors">
+              <span>Experience An Unforgettable Evening</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE FILTERABLE CULINARY MENU -->
+  <section id="menu" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Seasonal Degustation</span>
+      <h2 class="serif-title text-4xl sm:text-5xl font-normal text-linen mt-2 mb-4">
+        The Curated Tasting Menu
+      </h2>
+      <p class="text-linen/70 font-light text-base">
+        Crafted daily with seasonal farm harvests, wild truffles, and artisanal cheeses.
+      </p>
+
+      <!-- CATEGORY TABS -->
+      <div class="flex flex-wrap justify-center gap-2 mt-8" id="menuTabs">
+        <button onclick="filterMenu('all')" class="menu-tab-btn active px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-gold-400 text-noir">All Curations</button>
+        <button onclick="filterMenu('tapas')" class="menu-tab-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all glass-card text-linen/70 hover:text-gold-400">Small Plates & Tapas</button>
+        <button onclick="filterMenu('woodfired')" class="menu-tab-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all glass-card text-linen/70 hover:text-gold-400">Woodfired Pizzas</button>
+        <button onclick="filterMenu('mains')" class="menu-tab-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all glass-card text-linen/70 hover:text-gold-400">Signature Mains</button>
+        <button onclick="filterMenu('cocktails')" class="menu-tab-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all glass-card text-linen/70 hover:text-gold-400">Cocktails & Elixirs</button>
+        <button onclick="filterMenu('desserts')" class="menu-tab-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all glass-card text-linen/70 hover:text-gold-400">Dolce & Desserts</button>
+      </div>
+    </div>
+
+    <!-- MENU GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menuGrid">
+      
+      <!-- ITEM 1 -->
+      <div class="menu-card tapas glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Black Truffle & Burrata" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-noir/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gold-300 border border-gold-400/30">👑 Chef's Signature</span>
+          <span class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">🌱 Vegetarian</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">Truffle Burrata Pugliese</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹720</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            Fresh Puglia burrata, shaved Umbrian black truffle, heirloom cherry tomatoes, cold-pressed basil pesto & 25-yr balsamic drizzle.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Pairs with: Pinot Grigio</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="menu-card woodfired glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Woodfired Tartufo Pizza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-noir/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gold-300 border border-gold-400/30">⭐ Bestseller</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">Tartufo Bianco & Porcini</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹890</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            48-hour fermented sourdough crust, wild forest porcini, fior di latte mozzarella, mascarpone crema, white truffle oil & microgreens.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Volcanic Stone Fired @ 480°C</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="menu-card mains glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Norwegian Pan Seared Salmon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-noir/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gold-300 border border-gold-400/30">🔥 Chef Special</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">Norwegian Salmon Glacé</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹1,150</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            Crispy skin Atlantic salmon, saffron cauliflower purée, grilled asparagus spears, charred Meyer lemon & caper dill butter sauce.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Pairs with: Crisp Sauvignon Blanc</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="menu-card cocktails glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="Smoked Rosemary Old Fashioned" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-noir/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gold-300 border border-gold-400/30">🍸 Mixology</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">The Verona Smoked Elixir</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹650</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            Oak-aged Kentucky bourbon / non-alcoholic botanical distillate, bitters, flamed orange peel, tableside applewood cloche smoke presentation.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Smoked Tableside</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 5 -->
+      <div class="menu-card tapas glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80" alt="Charred Mediterranean Mezze" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">🌱 Vegan</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">Aegean Mezze Platter</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹680</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            Smoked roasted red pepper muhammara, truffle hummus, whipped feta with honeycomb, marinated Kalamata olives, warm garlic za'atar lavash.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Ideal for Sharing (2-3 Guests)</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 6 -->
+      <div class="menu-card desserts glass-card rounded-3xl overflow-hidden border border-white/5 hover:border-gold-400/40 transition-all duration-300 group">
+        <div class="h-60 overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Valrhona Gold Lava Sphere" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-noir/80 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-wider text-gold-300 border border-gold-400/30">✨ 24K Gold Dust</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between mb-2">
+            <h3 class="serif-title text-2xl font-semibold text-linen group-hover:text-gold-300 transition-colors">24K Valrhona Chocolate Sphere</h3>
+            <span class="serif-title text-xl font-bold text-gold-400">₹580</span>
+          </div>
+          <p class="text-xs text-linen/60 font-light leading-relaxed mb-4">
+            Handcrafted 70% dark Valrhona sphere, molten salted caramel core, Madagascar vanilla bean gelato, melted hot espresso ganache pour.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-white/5 text-[11px] text-warmgray">
+            <span>Live Ganache Table Pour</span>
+            <button onclick="openBookingModal()" class="text-gold-400 hover:text-gold-300 font-semibold underline">Order At Table &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AMBIANCE & SPACES (BENTO GRID) -->
+  <section id="ambiance" class="py-24 bg-obsidian border-y border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">The Setting</span>
+        <h2 class="serif-title text-4xl sm:text-5xl font-normal text-linen mt-2 mb-4">
+          Four Distinct Nocturnal Sanctuaries
+        </h2>
+        <p class="text-linen/70 font-light text-base">
+          From open-sky romantic rooftop cabanas to an intimate subterranean private cellar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- SPACE 1 (LARGE SPAN) -->
+        <div class="md:col-span-2 relative h-96 rounded-3xl overflow-hidden border border-white/10 group">
+          <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=1200&q=80" alt="Rooftop Skyline Dining Deck" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Panoramic SkyDeck</span>
+            <h3 class="serif-title text-3xl font-semibold text-linen mt-1">The Starlit Rooftop</h3>
+            <p class="text-xs text-linen/70 max-w-md mt-2 font-light">
+              360-degree city views, private curtains for cabanas, gentle ambient breezes, and acoustic saxophone performances every weekend.
+            </p>
+          </div>
+        </div>
+
+        <!-- SPACE 2 -->
+        <div class="relative h-96 rounded-3xl overflow-hidden border border-white/10 group">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="The Private Sommelier Cellar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Intimate Dining</span>
+            <h3 class="serif-title text-2xl font-semibold text-linen mt-1">The Reserve Cellar</h3>
+            <p class="text-xs text-linen/70 mt-2 font-light">
+              Secluded vault hosting up to 14 guests for bespoke wine tastings and multi-course anniversary dinners.
+            </p>
+          </div>
+        </div>
+
+        <!-- SPACE 3 -->
+        <div class="relative h-80 rounded-3xl overflow-hidden border border-white/10 group">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="The Botanical Glasshouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Indoor Oasis</span>
+            <h3 class="serif-title text-2xl font-semibold text-linen mt-1">The Botanical Greenhouse</h3>
+            <p class="text-xs text-linen/70 mt-2 font-light">
+              Lush hanging indoor flora, velvet banquettes, and natural daylight for weekend champagne brunches.
+            </p>
+          </div>
+        </div>
+
+        <!-- SPACE 4 (SPAN 2) -->
+        <div class="md:col-span-2 relative h-80 rounded-3xl overflow-hidden border border-white/10 group">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="The Chef's Flame Counter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400">The Theater</span>
+            <h3 class="serif-title text-3xl font-semibold text-linen mt-1">The Chef’s Live Flame Counter</h3>
+            <p class="text-xs text-linen/70 max-w-md mt-2 font-light">
+              Front-row culinary seats right across the blazing woodfire ovens, interacting with our master pizzaiolos and grill chefs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE RESERVATION MODAL / SECTION -->
+  <section id="reservation" class="py-24 max-w-5xl mx-auto px-6">
+    <div class="glass-card p-8 md:p-14 rounded-3xl border border-gold-400/30 relative overflow-hidden shadow-2xl">
+      <!-- DECORATIVE ACCENTS -->
+      <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-gold-500/10 blur-3xl pointer-events-none"></div>
+
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Direct Online Booking</span>
+        <h2 class="serif-title text-3xl sm:text-5xl font-normal text-linen mt-2">
+          Reserve Your Experience
+        </h2>
+        <p class="text-linen/70 text-sm font-light mt-2">
+          Complimentary table decor for anniversaries & birthdays. Instant confirmation sent directly to your WhatsApp.
+        </p>
+      </div>
+
+      <form id="reservationForm" onsubmit="handleReservation(event)" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- GUEST NAME -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Guest Full Name *</label>
+            <input type="text" id="resName" required placeholder="e.g. Vikramaditya Rathore" class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+          </div>
+
+          <!-- PHONE / WHATSAPP -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">WhatsApp Number *</label>
+            <input type="tel" id="resPhone" required placeholder="+91 98765 43210" class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <!-- DATE -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Reservation Date *</label>
+            <input type="date" id="resDate" required class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+          </div>
+
+          <!-- TIME SLOT -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Dining Slot *</label>
+            <select id="resTime" required class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+              <option value="Sunset Cocktail Hour (6:00 PM)">Sunset Hour (6:00 PM)</option>
+              <option value="Prime Dinner (7:30 PM)">Prime Dinner (7:30 PM)</option>
+              <option value="Acoustic Jazz Slot (9:00 PM)">Jazz Slot (9:00 PM)</option>
+              <option value="Late Night Skyline (10:30 PM)">Late Night (10:30 PM)</option>
+            </select>
+          </div>
+
+          <!-- GUESTS -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Number of Guests *</label>
+            <select id="resGuests" required class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+              <option value="2 Guests (Romantic Table)">2 Guests (Romantic Date)</option>
+              <option value="4 Guests (Family / Friends)">4 Guests (Social Table)</option>
+              <option value="6 Guests (Celebration)">6 Guests (Celebration)</option>
+              <option value="8+ Guests (Private Area)">8+ Guests (Private Cabana)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SEATING ZONE -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Preferred Dining Sanctuary</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-noir/60 border border-white/10 cursor-pointer hover:border-gold-400 transition-colors">
+              <input type="radio" name="seating" value="The Starlit Rooftop" checked class="text-gold-400 focus:ring-0">
+              <span class="text-xs text-linen">Rooftop Sky</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-noir/60 border border-white/10 cursor-pointer hover:border-gold-400 transition-colors">
+              <input type="radio" name="seating" value="The Botanical Greenhouse" class="text-gold-400 focus:ring-0">
+              <span class="text-xs text-linen">Greenhouse</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-noir/60 border border-white/10 cursor-pointer hover:border-gold-400 transition-colors">
+              <input type="radio" name="seating" value="Chef Flame Counter" class="text-gold-400 focus:ring-0">
+              <span class="text-xs text-linen">Live Counter</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-noir/60 border border-white/10 cursor-pointer hover:border-gold-400 transition-colors">
+              <input type="radio" name="seating" value="Reserve Wine Vault" class="text-gold-400 focus:ring-0">
+              <span class="text-xs text-linen">Wine Vault</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- SPECIAL NOTES -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-linen/70 mb-2 font-medium">Special Request / Celebration Note</label>
+          <input type="text" id="resNotes" placeholder="e.g. It's our 5th anniversary! Need candlelight & cake arrangement." class="w-full px-4 py-3.5 rounded-xl bg-noir border border-white/10 text-linen text-sm focus:border-gold-400 focus:outline-none transition-colors">
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-noir text-sm font-bold uppercase tracking-widest rounded-full hover:shadow-xl hover:shadow-gold-500/30 hover:scale-[1.01] transition-all">
+          Confirm Table Reservation &rarr;
+        </button>
+      </form>
+
+      <!-- SUCCESS STATE (HIDDEN INITIALLY) -->
+      <div id="bookingSuccess" class="hidden text-center py-12 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-3xl border border-emerald-500/40">✓</div>
+        <h3 class="serif-title text-3xl font-bold text-linen">Table Reserved Successfully!</h3>
+        <p class="text-sm text-linen/70 max-w-md mx-auto" id="successDetails"></p>
+        <div class="pt-4 flex justify-center gap-4">
+          <a id="waDirectBtn" target="_blank" class="px-6 py-3 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider rounded-full hover:brightness-110 flex items-center gap-2">
+            <span>Open WhatsApp Confirmation</span>
+          </a>
+          <button onclick="resetBookingForm()" class="px-6 py-3 glass-card text-linen text-xs uppercase tracking-wider rounded-full hover:border-gold-400">
+            Book Another
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINER REVIEWS & REPUTATION -->
+  <section id="reviews" class="py-24 bg-obsidian border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-400">Verified Testimonials</span>
+        <h2 class="serif-title text-4xl sm:text-5xl font-normal text-linen mt-2 mb-4">
+          What Food Critics & Diners Say
+        </h2>
+        <div class="flex items-center justify-center gap-2 text-gold-400 text-lg">
+          ★★★★★ <span class="text-linen font-bold text-sm ml-2">4.9 Out of 5 (1,420+ Google Reviews)</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- REVIEW 1 -->
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-400/30 transition-all">
+          <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">★★★★★</div>
+          <p class="text-linen/80 text-sm leading-relaxed italic mb-6">
+            "Hands down the finest rooftop dining experience in the city. The truffle burrata melted in our mouth, and the smoked rosemary cocktail arrived with a real cloche smoke show. Unbeatable sunset views."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-300 font-bold flex items-center justify-center text-sm">AK</div>
+            <div>
+              <p class="text-sm font-semibold text-linen">Aditya Kashyap</p>
+              <p class="text-[11px] text-warmgray">Google Local Guide • Level 7</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 2 -->
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-400/30 transition-all">
+          <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">★★★★★</div>
+          <p class="text-linen/80 text-sm leading-relaxed italic mb-6">
+            "We celebrated our wedding anniversary in the Private Reserve Cellar. The hospitality team had decorated the table with candles and roses before we even walked in. The volcanic sourdough pizza is Michelin level."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-300 font-bold flex items-center justify-center text-sm">NM</div>
+            <div>
+              <p class="text-sm font-semibold text-linen">Neha Mathur</p>
+              <p class="text-[11px] text-warmgray">Visited for 5th Anniversary Dinner</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEW 3 -->
+        <div class="glass-card p-8 rounded-3xl border border-white/5 hover:border-gold-400/30 transition-all">
+          <div class="flex items-center gap-1 text-gold-400 text-sm mb-4">★★★★★</div>
+          <p class="text-linen/80 text-sm leading-relaxed italic mb-6">
+            "The ambiance is straight out of Monaco or Milan. Acoustic live jazz beneath the stars with the 24K gold chocolate sphere dessert is an absolute must-try. Can't wait to return!"
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-300 font-bold flex items-center justify-center text-sm">RS</div>
+            <div>
+              <p class="text-sm font-semibold text-linen">Rohan Singhal</p>
+              <p class="text-[11px] text-warmgray">Food & Lifestyle Creator</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-noir border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/5">
+      <!-- BRAND -->
+      <div class="space-y-4">
+        <a href="#" class="flex flex-col">
+          <span class="serif-title text-2xl font-bold tracking-widest uppercase text-linen">V E R O N A</span>
+          <span class="text-[9px] uppercase tracking-[0.3em] text-gold-400 font-semibold">Artisanal Rooftop Lounge</span>
+        </a>
+        <p class="text-xs text-linen/60 font-light leading-relaxed">
+          Pioneering culinary excellence with stone-baked pizzas, seasonal farm ingredients, and sky-high luxury.
+        </p>
+        <div class="flex items-center gap-4 text-gold-400 text-sm pt-2">
+          <a href="#" class="hover:text-gold-300 transition-colors">Instagram</a>
+          <span>•</span>
+          <a href="#" class="hover:text-gold-300 transition-colors">Facebook</a>
+          <span>•</span>
+          <a href="#" class="hover:text-gold-300 transition-colors">TripAdvisor</a>
+        </div>
+      </div>
+
+      <!-- TIMINGS -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-4">Dining Hours</p>
+        <div class="space-y-2 text-xs text-linen/70 font-light">
+          <p><span class="font-medium text-linen">Mon – Thu:</span> 12:00 PM – 11:30 PM</p>
+          <p><span class="font-medium text-linen">Fri – Sun:</span> 12:00 PM – 01:00 AM</p>
+          <p><span class="font-medium text-linen">Sunset Jazz:</span> Fri & Sat from 7:30 PM</p>
+          <p class="text-emerald-400 font-medium pt-2">Valet Parking Available 24/7</p>
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-4">Location & Directions</p>
+        <p class="text-xs text-linen/70 font-light leading-relaxed mb-3">
+          12th Floor SkyTower, Civil Lines / C-Scheme, Jaipur, Rajasthan 302001
+        </p>
+        <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-gold-400 hover:text-gold-300 underline">
+          Open In Google Maps &rarr;
+        </a>
+      </div>
+
+      <!-- CONCIERGE -->
+      <div>
+        <p class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-4">Table Concierge</p>
+        <p class="text-xs text-linen/70 font-light mb-3">
+          For large private celebrations, corporate buyouts, or chef's table inquiries:
+        </p>
+        <a href="tel:+919528582084" class="block text-sm font-bold text-linen hover:text-gold-400 transition-colors">
+          +91 95285 82084
+        </a>
+        <p class="text-[11px] text-warmgray mt-1">Available 11 AM - 11 PM on WhatsApp</p>
+      </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="max-w-7xl mx-auto px-6 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-warmgray gap-4">
+      <p>&copy; 2026 Verona Rooftop & Kitchen. All Rights Reserved.</p>
+      <p class="text-gold-400/80">Architected & Engineered by Modern Web Studio</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Set default date to today
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('resDate');
+      if (dateInput) {
+        dateInput.value = today;
+        dateInput.min = today;
+      }
+    });
+
+    // Filter Menu Items
+    function filterMenu(category) {
+      const buttons = document.querySelectorAll('.menu-tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-gold-400', 'text-noir', 'active');
+        btn.classList.add('glass-card', 'text-linen/70');
+      });
+
+      event.target.classList.remove('glass-card', 'text-linen/70');
+      event.target.classList.add('bg-gold-400', 'text-noir', 'active');
+
+      const cards = document.querySelectorAll('.menu-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Modal / Scroll To Reservation
+    function openBookingModal() {
+      const el = document.getElementById('reservation');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          document.getElementById('resName').focus();
+        }, 500);
+      }
+    }
+
+    // Handle Reservation Submission
+    function handleReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('resName').value.trim();
+      const phone = document.getElementById('resPhone').value.trim();
+      const date = document.getElementById('resDate').value;
+      const time = document.getElementById('resTime').value;
+      const guests = document.getElementById('resGuests').value;
+      const seating = document.querySelector('input[name="seating"]:checked')?.value || 'The Starlit Rooftop';
+      const notes = document.getElementById('resNotes').value.trim();
+
+      const details = `Dear ${name}, your table for ${guests} on ${date} at ${time} in "${seating}" is confirmed!`;
+      document.getElementById('successDetails').innerText = details;
+
+      // Construct WhatsApp Direct Link
+      const waMsg = encodeURIComponent(`Hello Verona Rooftop Concierge! 🥂\n\nI want to confirm my table reservation:\n\n• Name: ${name}\n• Date: ${date}\n• Slot: ${time}\n• Party: ${guests}\n• Area: ${seating}${notes ? '\n• Special Note: ' + notes : ''}\n\nPlease confirm availability!`);
+      document.getElementById('waDirectBtn').href = `https://wa.me/919528582084?text=${waMsg}`;
+
+      document.getElementById('reservationForm').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
+    }
+
+    function resetBookingForm() {
+      document.getElementById('reservationForm').reset();
+      document.getElementById('reservationForm').classList.remove('hidden');
+      document.getElementById('bookingSuccess').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
